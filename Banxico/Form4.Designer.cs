@@ -28,17 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             btnClose = new Button();
             btnEnter = new Button();
             label2 = new Label();
             label1 = new Label();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
-            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
+            dtpEndDate = new DateTimePicker();
+            dtpStartDate = new DateTimePicker();
             SuspendLayout();
             // 
             // btnClose
@@ -49,6 +44,7 @@
             btnClose.TabIndex = 14;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // btnEnter
             // 
@@ -80,51 +76,35 @@
             label1.TabIndex = 11;
             label1.Text = "Start date";
             // 
-            // dateTimePicker2
+            // dtpEndDate
             // 
-            dateTimePicker2.Location = new Point(92, 86);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 23);
-            dateTimePicker2.TabIndex = 10;
+            dtpEndDate.Format = DateTimePickerFormat.Custom;
+            dtpEndDate.Location = new Point(92, 86);
+            dtpEndDate.Name = "dtpEndDate";
+            dtpEndDate.Size = new Size(200, 23);
+            dtpEndDate.TabIndex = 10;
             // 
-            // dateTimePicker1
+            // dtpStartDate
             // 
-            dateTimePicker1.Location = new Point(92, 38);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 9;
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chart1.Legends.Add(legend1);
-            chart1.Location = new Point(334, 28);
-            chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chart1.Series.Add(series1);
-            chart1.Size = new Size(338, 300);
-            chart1.TabIndex = 15;
-            chart1.Text = "chart1";
+            dtpStartDate.Format = DateTimePickerFormat.Custom;
+            dtpStartDate.Location = new Point(92, 38);
+            dtpStartDate.Name = "dtpStartDate";
+            dtpStartDate.Size = new Size(200, 23);
+            dtpStartDate.TabIndex = 9;
             // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(684, 461);
-            Controls.Add(chart1);
             Controls.Add(btnClose);
             Controls.Add(btnEnter);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dtpEndDate);
+            Controls.Add(dtpStartDate);
             Name = "Form4";
             Text = "Form4";
-            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -135,8 +115,7 @@
         private Button btnEnter;
         private Label label2;
         private Label label1;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private DateTimePicker dtpEndDate;
+        private DateTimePicker dtpStartDate;
     }
 }

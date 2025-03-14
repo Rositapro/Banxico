@@ -28,31 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
+            dtpStartDate = new DateTimePicker();
+            dtpEndDate = new DateTimePicker();
             label1 = new Label();
             label2 = new Label();
             btnEnter = new Button();
             btnClose = new Button();
             dataGridView1 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // dateTimePicker1
+            // dtpStartDate
             // 
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(95, 36);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 0;
+            dtpStartDate.Format = DateTimePickerFormat.Custom;
+            dtpStartDate.Location = new Point(95, 36);
+            dtpStartDate.Name = "dtpStartDate";
+            dtpStartDate.Size = new Size(200, 23);
+            dtpStartDate.TabIndex = 0;
             // 
-            // dateTimePicker2
+            // dtpEndDate
             // 
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(95, 84);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 23);
-            dateTimePicker2.TabIndex = 1;
+            dtpEndDate.Format = DateTimePickerFormat.Custom;
+            dtpEndDate.Location = new Point(95, 84);
+            dtpEndDate.Name = "dtpEndDate";
+            dtpEndDate.Size = new Size(200, 23);
+            dtpEndDate.TabIndex = 1;
             // 
             // label1
             // 
@@ -97,10 +99,21 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
             dataGridView1.Location = new Point(326, 34);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(331, 222);
             dataGridView1.TabIndex = 9;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Date";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "PriceDollar";
+            Column2.Name = "Column2";
             // 
             // Form3
             // 
@@ -112,8 +125,8 @@
             Controls.Add(btnEnter);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dtpEndDate);
+            Controls.Add(dtpStartDate);
             Name = "Form3";
             Text = "Form3";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -123,12 +136,14 @@
 
         #endregion
 
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dtpStartDate;
+        private DateTimePicker dtpEndDate;
         private Label label1;
         private Label label2;
         private Button btnEnter;
         private Button btnClose;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
     }
 }
