@@ -53,7 +53,6 @@ namespace Banxico
                         index++;
                     }
 
-                    //// Limpiar y actualizar la gráfica
                     //formsPlot1.Plot.Clear();
                     //var bar = formsPlot1.Plot.AddBar(valores);
                     //formsPlot1.Plot.XTicks(fechas);
@@ -61,6 +60,24 @@ namespace Banxico
                     //formsPlot1.Plot.YLabel("Precio en MXN");
                     //formsPlot1.Plot.XLabel("Fecha");
                     //formsPlot1.Refresh();
+                    formsPlot1.Plot.Clear();
+
+                    // Agregar gráfico de barras
+                    var bar = formsPlot1.Plot.Add.Bars(valores);
+
+                    // Asignar etiquetas personalizadas en el eje X
+                    formsPlot1.Plot.Axes.Bottom.TickGenerator = new ScottPlot.TickGenerators.NumericManual(fechas.Select((f, i) => (double)i).ToArray(), fechas);
+
+                    // Ajustar márgenes para mejorar la visibilidad
+                    formsPlot1.Plot.Axes.Margins(0.1, 0.2);
+
+                    // Agregar títulos
+                    formsPlot1.Plot.Title("Valor del Dólar en el Rango de Fechas");
+                    formsPlot1.Plot.YLabel("Precio en MXN");
+                    formsPlot1.Plot.XLabel("Fecha");
+
+                    // Refrescar gráfico
+                    formsPlot1.Refresh();
                 }
                 else
                 {
@@ -68,38 +85,10 @@ namespace Banxico
                 }
             }
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
             form2.Show();
         }
-        //private async Task ObtenerDolarPorFechas(string fechaInicio, string fechaFin)
-        //{
-        //    string url = $"https://www.banxico.org.mx/SieAPIRest/service/v1/series/SF43718/datos/{fechaInicio}/{fechaFin}?token={token}";
-        //    using (HttpClient client = new HttpClient())
-        //    {
-        //        HttpResponseMessage response = await client.GetAsync(url);
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            string jsonResponse = await response.Content.ReadAsStringAsync();
-        //            JObject datos = JObject.Parse(jsonResponse);
-        //            // Extraer datos de la serie
-        //            var series = datos["bmx"]["series"][0]["datos"];
-        //            dataGridView1.Rows.Clear();
-        //            foreach (var dato in series)
-        //            {
-        //                string fecha = dato["fecha"].ToString();
-        //                string valor = dato["dato"].ToString();
-        //                dataGridView1.Rows.Add(fecha, valor);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Error al obtener los datos de Banxico", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //}
-
     }
 }

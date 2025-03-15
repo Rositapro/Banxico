@@ -34,6 +34,7 @@
             label1 = new Label();
             dtpEndDate = new DateTimePicker();
             dtpStartDate = new DateTimePicker();
+            formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             SuspendLayout();
             // 
             // btnClose
@@ -92,11 +93,20 @@
             dtpStartDate.Size = new Size(200, 23);
             dtpStartDate.TabIndex = 9;
             // 
+            // formsPlot1
+            // 
+            formsPlot1.DisplayScale = 1F;
+            formsPlot1.Location = new Point(336, 29);
+            formsPlot1.Name = "formsPlot1";
+            formsPlot1.Size = new Size(553, 440);
+            formsPlot1.TabIndex = 15;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(684, 461);
+            ClientSize = new Size(901, 506);
+            Controls.Add(formsPlot1);
             Controls.Add(btnClose);
             Controls.Add(btnEnter);
             Controls.Add(label2);
@@ -117,5 +127,6 @@
         private Label label1;
         private DateTimePicker dtpEndDate;
         private DateTimePicker dtpStartDate;
+        private ScottPlot.WinForms.FormsPlot formsPlot1;
     }
 }

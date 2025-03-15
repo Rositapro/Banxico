@@ -102,7 +102,7 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
             dataGridView1.Location = new Point(326, 34);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(331, 222);
+            dataGridView1.Size = new Size(331, 487);
             dataGridView1.TabIndex = 9;
             // 
             // Column1
@@ -119,7 +119,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(684, 461);
+            ClientSize = new Size(693, 533);
             Controls.Add(dataGridView1);
             Controls.Add(btnClose);
             Controls.Add(btnEnter);
