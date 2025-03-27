@@ -1,14 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using ScottPlot;
+using ScottPlot.Plottables;
 
 namespace Banxico
 {
@@ -40,43 +32,35 @@ namespace Banxico
                     JObject datos = JObject.Parse(jsonResponse);
 
                     var series = datos["bmx"]["series"][0]["datos"];
-
                     int totalDatos = series.Count();
                     double[] valores = new double[totalDatos];
                     string[] fechas = new string[totalDatos];
-
+                    int[] numDia = new int[totalDatos];
                     int index = 0;
+                    Scatter point;
+                    formsPlot1.Plot.Clear(); 
                     foreach (var dato in series)
                     {
                         fechas[index] = dato["fecha"].ToString();
                         valores[index] = double.TryParse(dato["dato"].ToString(), out double valor) ? valor : 0;
+
+                       numDia[index] = index+1;
                         index++;
                     }
 
-                    //formsPlot1.Plot.Clear();
-                    //var bar = formsPlot1.Plot.AddBar(valores);
-                    //formsPlot1.Plot.XTicks(fechas);
-                    //formsPlot1.Plot.Title("Valor del Dólar en el Rango de Fechas");
-                    //formsPlot1.Plot.YLabel("Precio en MXN");
-                    //formsPlot1.Plot.XLabel("Fecha");
-                    //formsPlot1.Refresh();
-                    formsPlot1.Plot.Clear();
+                    point = formsPlot1.Plot.Add.Scatter(numDia, valores);
+                    point.Color = Colors.Green;
+                    point.LineWidth = 5;
+                    point.MarkerSize = 10;
+                    point.MarkerShape = MarkerShape.FilledCircle;
+                    point.LinePattern = LinePattern.Solid;
 
-                    // Agregar gráfico de barras
-                    var bar = formsPlot1.Plot.Add.Bars(valores);
-
-                    // Asignar etiquetas personalizadas en el eje X
-                    formsPlot1.Plot.Axes.Bottom.TickGenerator = new ScottPlot.TickGenerators.NumericManual(fechas.Select((f, i) => (double)i).ToArray(), fechas);
-
-                    // Ajustar márgenes para mejorar la visibilidad
+                    formsPlot1.Refresh();
                     formsPlot1.Plot.Axes.Margins(0.1, 0.2);
-
-                    // Agregar títulos
                     formsPlot1.Plot.Title("Valor del Dólar en el Rango de Fechas");
                     formsPlot1.Plot.YLabel("Precio en MXN");
                     formsPlot1.Plot.XLabel("Fecha");
 
-                    // Refrescar gráfico
                     formsPlot1.Refresh();
                 }
                 else

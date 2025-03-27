@@ -9,8 +9,8 @@ namespace Banxico
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            string usuarioCorrecto = "Rosalinda";
-            string contrasenaCorrecta = "Rosalinda2020";
+            string usuarioCorrecto = "a";
+            string contrasenaCorrecta = "a";
 
             if (txtUser.Text == usuarioCorrecto && txtPass.Text == contrasenaCorrecta)
             {
